@@ -1,9 +1,14 @@
+   <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
+
 <%=render 'books/list',new_book: @new_book,user: current_user%>
 
-<h1>Books</h1>
 
 <div>
-    <h1>Users</h1>
+    <h1>Books</h1>
     <table>
         <tr>
             <th colspan="1"></th>

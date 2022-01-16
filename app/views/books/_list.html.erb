@@ -1,19 +1,26 @@
 <div>
     <h1>User info</h1>
     <%=image_tag user.get_proflie_image("100x100")%><br>
-    <label>name</label>
-    <%=user.name%><br>
-    <label>introduction</label>
-    <%=user.introduction%><br>
+    <table>
+        <tr>
+            <th>name</th>
+            <td><%=user.name%></td>
+        </tr>
+    <tr>
+        <th>introduction</th>
+        <td><%=user.introduction%></td>
+    </tr>
+    </table>
+    
     <%=link_to 'edit',edit_user_path(current_user)%>
 </div>
 
 <div>
     <h1>New book</h1>
     <%= form_with model: new_book,local:true do |f| %>
-    <label>Title</label>
+    <%=f.label:Title%><br>
     <%= f.text_field:title %><br>
-    <label>Opinion</label>
+    <%=f.label:Opinion%><br>
     <%= f.text_area:body %><br>
     <%=f.submit'Create Book'%>
     <% end %>
