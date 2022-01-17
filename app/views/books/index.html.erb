@@ -1,4 +1,13 @@
-<%=render 'list',new_book: @new_book,user: current_user%>
+<% if @book.errors.any? %>
+    <%=@book.errors.count%> errors prohinited this obj from being saved:
+        <ul>
+          <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+<% end %>
+
+<%=render 'list',new_book: @book,user: current_user%>
 
 <div>
     <h1>Books</h1>
